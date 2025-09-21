@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
     public int moveSpeed = 10;
+    bool isSpriteFlipped = false;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,16 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rb.gravityScale *= -1;
+            if (isSpriteFlipped)
+            {
+                GetComponent<SpriteRenderer>().flipY = false;
+                isSpriteFlipped = false;
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().flipY = true;
+                isSpriteFlipped = true;
+            }
         }
 
         if (Input.GetKey(KeyCode.D))
