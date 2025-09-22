@@ -6,6 +6,8 @@ TagManager:
   tags:
   - ground
   - spike
+  - checkpoint
+  - win
   layers:
   - Default
   - TransparentFX
