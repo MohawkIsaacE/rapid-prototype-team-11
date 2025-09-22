@@ -43,5 +43,19 @@ public class PlayerMovement : MonoBehaviour
             transform.position += Vector3.right * -moveSpeed * Time.deltaTime;
 
         }
+
+        // Exit button
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "spike")
+        {
+            rb.transform.position = new Vector3(-7, -3, 0);
+        }
     }
 }
