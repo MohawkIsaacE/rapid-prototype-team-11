@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     public int moveSpeed = 10;
     bool isSpriteFlipped = false;
+    public bool isGrounded;
     public GameObject[] checkpoints = new GameObject[4];
     public GameObject winImage;
     int currentCheckpoint;
@@ -29,9 +30,10 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // Gravity flipping
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.gravityScale *= -1;
+            isGrounded = false;
             if (isSpriteFlipped)
             {
                 GetComponent<SpriteRenderer>().flipY = false;
@@ -71,6 +73,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // Ground collision
+        if (collision.gameObject.tag == "ground")
+        {
+            isGrounded = true;
+        }
+
         // Spike collision
         if (collision.gameObject.tag == "spike")
         {
