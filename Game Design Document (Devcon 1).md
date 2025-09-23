@@ -16,3 +16,7 @@ The kind of experience I have in mind is an easy to learn, difficult to master t
 **Design Rationale**
 For the bigger game that this mechanic would be attached to, I was thinking of a Metroid Vania type game, where the gravity switch would be a new ability gained by the player to traverse the world better and unlock new, previously inaccessible areas.
 
+
+
+Asset Credits:
+
